@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const images = [
     '/images/20260710_220225.jpg',
     '/images/20260710_220307.jpg',
@@ -16,25 +18,43 @@ function App() {
       {/* Navigation */}
       <nav className="border-b border-zinc-800 bg-black sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-6">
-          <div className="text-xl md:text-2xl font-black tracking-widest uppercase">
+          <div className="text-xl md:text-2xl font-black tracking-widest uppercase relative z-50">
             THE W GYM
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-10 text-sm font-bold tracking-wider">
+          <div className="hidden md:flex space-x-8 text-sm font-bold tracking-wider">
             <a href="#tour" className="hover:text-red-600 transition-colors">TOUR</a>
+            <a href="#planner" className="hover:text-red-600 transition-colors">3D PLANNER</a>
             <a href="#reviews" className="hover:text-red-600 transition-colors">REVIEWS</a>
             <a href="#membership" className="hover:text-red-600 transition-colors">FEES</a>
             <a href="#contact" className="hover:text-red-600 transition-colors">LOCATION</a>
           </div>
 
-          {/* Mobile Menu Button Placeholder */}
-          <div className="md:hidden flex items-center">
-            <button className="text-white focus:outline-none">
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center relative z-50">
+            <button 
+              className="text-white focus:outline-none p-2 -mr-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              ) : (
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+              )}
             </button>
+          </div>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        <div className={`md:hidden absolute top-full left-0 w-full bg-zinc-950 border-b border-zinc-900 transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0 overflow-hidden py-0'}`}>
+          <div className="flex flex-col items-center space-y-6 text-lg font-bold tracking-wider">
+            <a href="#tour" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">TOUR</a>
+            <a href="#planner" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">3D PLANNER</a>
+            <a href="#reviews" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">REVIEWS</a>
+            <a href="#membership" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">FEES</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">LOCATION</a>
           </div>
         </div>
       </nav>
@@ -47,30 +67,30 @@ function App() {
           style={{ backgroundImage: `url('${images[4]}')`, filter: 'grayscale(50%)' }}
         ></div>
         
-        <div className="relative z-20 text-center px-4 flex flex-col items-center">
-          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black uppercase leading-none tracking-tighter mb-6 text-white drop-shadow-2xl">
+        <div className="relative z-20 text-center px-4 flex flex-col items-center w-full max-w-full overflow-hidden">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-black uppercase leading-none tracking-tighter mb-4 sm:mb-6 text-white drop-shadow-2xl">
             THE <span className="text-red-600">W</span> GYM
           </h1>
           
-          <a href="#membership" className="mt-8 bg-red-600 text-white px-12 py-5 font-black text-xl tracking-widest uppercase hover:bg-red-700 transition-colors border-2 border-red-600 hover:border-red-700 shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+          <a href="#membership" className="mt-6 sm:mt-8 bg-red-600 text-white px-8 sm:px-12 py-4 sm:py-5 font-black text-lg sm:text-xl tracking-widest uppercase hover:bg-red-700 transition-colors border-2 border-red-600 hover:border-red-700 shadow-[0_0_20px_rgba(220,38,38,0.4)]">
             JOIN TODAY
           </a>
         </div>
       </header>
 
       {/* Info Bar */}
-      <div className="bg-zinc-900 border-b border-zinc-800 py-12">
+      <div className="bg-zinc-900 border-b border-zinc-800 py-10 sm:py-12">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <p className="text-2xl font-bold tracking-widest uppercase mb-4">Located in Dehradun</p>
-          <p className="text-zinc-400 text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
-            Infinity tower, GMS Rd, near reliance Market, Mahadev Vihar,<br />
+          <p className="text-xl sm:text-2xl font-bold tracking-widest uppercase mb-4">Located in Dehradun</p>
+          <p className="text-zinc-400 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto px-2">
+            Infinity tower, GMS Rd, near reliance Market, Mahadev Vihar,<br className="hidden sm:block" />
             Shakti Enclave, Niranjanpur, Dehradun, Uttarakhand 248171
           </p>
           
           <a 
             href={googleMapsLink}
             target="_blank" rel="noopener noreferrer"
-            className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-colors"
+            className="inline-block bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 text-sm sm:text-base font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-colors"
           >
             View on Google Maps
           </a>
@@ -95,6 +115,29 @@ function App() {
                 />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3D Gym Planner Section */}
+      <section id="planner" className="py-24 bg-zinc-950 border-t border-zinc-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest mb-4">
+              VIRTUAL <span className="text-red-600">3D PLANNER</span>
+            </h2>
+            <p className="text-zinc-400 text-lg uppercase tracking-widest font-bold">
+              Design your workout & explore the floor plan
+            </p>
+          </div>
+          
+          <div className="w-full bg-black border-2 border-zinc-800 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(220,38,38,0.15)] relative" style={{ height: '75vh', minHeight: '600px' }}>
+            <iframe 
+              src="https://3dgymplanner.com/" 
+              className="w-full h-full border-none absolute inset-0"
+              title="3D Gym Planner"
+              allow="fullscreen"
+            ></iframe>
           </div>
         </div>
       </section>

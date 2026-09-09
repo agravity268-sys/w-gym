@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- LCP image. Must track HERO_IMAGES[0] in LandingScreen.jsx (the video
+         hero is off, so /hero-orbit.jpg was being preloaded and never used). -->
+    <link rel="preload" as="image" href="/hero-gym-v4.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" /></noscript>
+
+    <!-- Canonical — prevents www vs non-www duplicate indexing -->
+    <link rel="canonical" href="https://3dgymplanner.com/" />
+
+    <!-- Primary -->
+    <title>Gym Layout Planner — Free 3D Home Gym Design Tool</title>
+    <meta name="description" content="Free 3D gym layout planner. Drag 134+ real equipment pieces into your garage or basement, check clearances, and walk through it before buying anything." />
+    <meta name="keywords" content="home gym planner, 3D gym layout, garage gym planner, home gym design, gym layout tool, home gym floor plan, basement gym layout, garage gym setup, gym equipment planner, free gym planner" />
+    <meta name="theme-color" content="#1f2329" />
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, Slack, Discord previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://3dgymplanner.com" />
+    <meta property="og:title" content="3D Gym Planner — Design your home gym" />
+    <meta property="og:description" content="Drag real equipment into your space, check if it fits, then walk through it in first person — all before buying anything." />
+    <meta property="og:image" content="https://3dgymplanner.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="3D Gym Planner" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="3D Gym Planner — Design your home gym" />
+    <meta name="twitter:description" content="Drag real equipment into your space, check if it fits, then walk through it in first person — all before buying anything." />
+    <meta name="twitter:image" content="https://3dgymplanner.com/og-image.png" />
+
+    <!-- Legacy thumbnail signal (Bing) -->
+    <link rel="image_src" href="https://3dgymplanner.com/og-image.png" />
+    <meta name="thumbnail" content="https://3dgymplanner.com/og-image.png" />
+
+    <!-- JSON-LD: SoftwareApplication schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "3D Gym Planner",
+      "alternateName": "3DGymPlanner",
+      "url": "https://3dgymplanner.com",
+      "description": "A free 3D home gym layout planner. Drag real equipment into your garage or basement, check if it fits, track your budget, then walk through it in first person — all before buying anything.",
+      "applicationCategory": "DesignApplication",
+      "applicationSubCategory": "Home Gym Planning Tool",
+      "operatingSystem": "Any (web-based)",
+      "browserRequirements": "Requires WebGL-capable browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "screenshot": "https://3dgymplanner.com/og-image.png",
+      "image": "https://3dgymplanner.com/og-image.png",
+      "featureList": [
+        "True-to-scale 3D layout planner",
+        "50+ equipment pieces with real dimensions",
+        "Collision detection",
+        "First-person walkthrough mode",
+        "Budget tracker with price estimates",
+        "Floor plan export",
+        "7 starter templates",
+        "Metric and imperial units"
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Home gym owners, garage gym builders, fitness enthusiasts"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "3D Gym Planner",
+      "url": "https://3dgymplanner.com",
+      "description": "Free 3D home gym layout planner — design your garage or basement gym before you spend a dollar.",
+      "image": "https://3dgymplanner.com/og-image.png",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://3dgymplanner.com/inspiration?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage — drives rich results in search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I plan a home gym layout?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start by measuring your space (width, depth, ceiling height). Enter those dimensions into a 3D gym planner, then drag in your anchor piece (usually a power rack or cable machine) and arrange equipment around it. Check clearances — you need at least 3 ft of space on each side for safe movement. Plan the full layout before buying anything to avoid costly mistakes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free gym layout planner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. 3D Gym Planner is a free gym layout planner that runs in your browser with no account or download. Set your exact room size, drag 134+ to-scale equipment pieces into the space, check clearances with live collision detection, track your budget, and walk through the finished layout in first person before you buy anything."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What equipment do I need for a home gym?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A solid starter home gym needs three things: a power rack or squat stand for compound lifts, a barbell with plates, and an adjustable bench. From there, add adjustable dumbbells, a cable machine or functional trainer, and a cardio piece like a rower. The exact equipment depends on your goals and available space."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much space do I need for a home gym?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A functional home gym can fit in as little as 100 sq ft (10x10 ft), but 200 sq ft is the sweet spot for a complete setup. A standard one-car garage (roughly 12x20 ft = 240 sq ft) is enough for a power rack, cable machine, dumbbells, and a cardio piece with space to move."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a home gym cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A budget home gym with a basic rack, barbell, and plates can be built for $800–1,500. A mid-tier setup with a quality power rack, cable machine, adjustable dumbbells, and rubber flooring typically runs $4,000–6,000. A premium build with commercial-grade equipment can exceed $15,000. Buying used equipment can cut costs by 40–60%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is 3D Gym Planner free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. 3D Gym Planner is completely free to use. You can plan your home gym layout, place 134+ equipment pieces to scale, check clearances, track your budget, and export your floor plan — no credit card required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much clearance do I need around gym equipment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Power racks need at least 3 ft (90 cm) in front for barbell walkouts and ideally 2 ft on each side for plate loading. Cable machines and functional trainers need 4–5 ft in front for full-range movements. Treadmills and rowing machines need 3 ft behind for safety. Dumbbells and benches need 3 ft of open floor in front. A 3D gym planner with collision detection helps you verify these clearances before buying."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I fit a power rack in a 10x10 room?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, a 10x10 room (100 sq ft) can fit a compact power rack with a bench and barbell if you plan carefully. A standard power rack footprint is roughly 4x4 ft, but you need 3 ft in front for walkouts and 2 ft on each side for loading — that puts the minimum usable room width at around 8 ft. A 10x10 room works but leaves little space for anything else. Use a 3D planner to confirm before buying."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a functional trainer and how much space does it need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A functional trainer (also called a cable crossover or dual-stack cable machine) has two adjustable cable columns and lets you do hundreds of exercises from any angle. Most functional trainers have a footprint of 4–5 ft wide by 2–3 ft deep, but you need 5–6 ft of clearance in front of the machine for cable exercises at full extension. Budget dual-stack trainers start around $800; commercial-grade units run $3,000–6,000."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What rubber flooring do I need for a home gym?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "3/4-inch (19 mm) rubber stall mats are the most popular choice for home and garage gyms — they handle dropped weights, protect your concrete, and cost $40–60 per 4x6 ft mat. A 12x12 ft area needs about 6 mats ($250–360 total). For dedicated weightlifting platforms, use 3/4-inch rubber with a 3/4-inch plywood layer on top. Thin 3/8-inch rubber tiles work for cardio areas but aren't thick enough for free weights."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I design a home gym with a low ceiling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For ceilings under 8 ft: avoid pull-up attachments on power racks (you need 9–10 ft for full ROM), skip overhead press platforms, and choose low-profile cable machines. At 7–7.5 ft you can still squat, bench, deadlift, and use most selectorized machines. In 3D Gym Planner, enter your actual ceiling height — the tool flags equipment that exceeds it so you know before you buy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between a power rack and a squat rack?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A power rack (also called a four-post cage) has four vertical uprights and safety spotter arms, letting you squat, bench, and overhead press without a spotter. A squat rack (or half rack) has two uprights and is more compact — good for smaller rooms. Power racks are safer for solo heavy lifting but need more floor space (typically 4x4 ft vs. 2x4 ft for a squat stand). A functional trainer attached to a half rack combines both into one footprint."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I plan a 12x20 garage gym layout?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 12x20 ft one-car garage (240 sq ft) is one of the most common home gym spaces. A popular layout: power rack centered on one short wall with 3 ft barbell clearance on each side, adjustable bench in front, dumbbell rack along a long wall, cable machine or functional trainer on the opposite short wall, and a cardio piece (rower or bike) along the remaining long wall. Leave the center open for floor exercises. Use a 3D gym planner to verify clearances before buying any equipment."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/vendor-react-DGu1xDNs.js"></script>
+    <script type="module" crossorigin src="/assets/main-VrGm6QZU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-DL3C2Mn4.css">
+  </head>
+  <body>
+    <!-- Loading screen — pure HTML/CSS/SVG, renders before any JS downloads.
+         React removes it on first mount via the 'gp-loaded' class. -->
+    <div id="gp-loader" aria-hidden="true">
+      <div id="gp-loader-inner">
+
+        <!-- Isometric cube scaffolding: 9 edges draw in sequence, nodes pop at junctions,
+             then the dumbbell fades in once the cube is complete. -->
+        <!--
+          Vertices: A(60,10) B(100,32) C(60,52) D(20,32) E(20,72) F(60,92) G(100,72)
+          Edges bottom→verticals→top:
+            e0 E→F   e1 G→F   e2 D→E   e3 B→G   e4 C→F
+            e5 D→C   e6 B→C   e7 D→A   e8 B→A
+        -->
+        <svg viewBox="0 0 120 106" width="148" height="130" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Cube edges -->
+          <line class="gpe" style="animation-delay:0.00s,2.9s" x1="20" y1="72" x2="60" y2="92"/>
+          <line class="gpe" style="animation-delay:0.22s,2.9s" x1="100" y1="72" x2="60" y2="92"/>
+          <line class="gpe" style="animation-delay:0.44s,2.9s" x1="20" y1="32" x2="20" y2="72"/>
+          <line class="gpe" style="animation-delay:0.62s,2.9s" x1="100" y1="32" x2="100" y2="72"/>
+          <line class="gpe" style="animation-delay:0.80s,2.9s" x1="60" y1="52" x2="60" y2="92"/>
+          <line class="gpe" style="animation-delay:1.00s,2.9s" x1="20" y1="32" x2="60" y2="52"/>
+          <line class="gpe" style="animation-delay:1.18s,2.9s" x1="100" y1="32" x2="60" y2="52"/>
+          <line class="gpe" style="animation-delay:1.36s,2.9s" x1="20" y1="32" x2="60" y2="10"/>
+          <line class="gpe" style="animation-delay:1.54s,2.9s" x1="100" y1="32" x2="60" y2="10"/>
+
+          <!-- Junction nodes — pop at each vertex as lines arrive -->
+          <circle class="gpn" style="animation-delay:0.00s,2.9s" cx="20"  cy="72" r="3"/>
+          <circle class="gpn" style="animation-delay:0.22s,2.9s" cx="100" cy="72" r="3"/>
+          <circle class="gpn" style="animation-delay:0.16s,2.9s" cx="60"  cy="92" r="3"/>
+          <circle class="gpn" style="animation-delay:0.44s,2.9s" cx="20"  cy="32" r="3"/>
+          <circle class="gpn" style="animation-delay:0.62s,2.9s" cx="100" cy="32" r="3"/>
+          <circle class="gpn" style="animation-delay:0.80s,2.9s" cx="60"  cy="52" r="3"/>
+          <circle class="gpn" style="animation-delay:1.54s,2.9s" cx="60"  cy="10" r="3"/>
+
+          <!-- Dumbbell — fades in once cube is complete -->
+          <g class="gpdb">
+            <!-- Bar -->
+            <rect x="41" y="65" width="38" height="5" rx="2.5" fill="#1f2329"/>
+            <!-- Left plate -->
+            <rect x="30" y="58" width="12" height="19" rx="2" fill="#1f2329"/>
+            <!-- Right plate -->
+            <rect x="78" y="58" width="12" height="19" rx="2" fill="#1f2329"/>
+          </g>
+
+        </svg>
+
+        <!-- Label + progress -->
+        <div style="text-align:center;margin-top:4px">
+          <div style="font-size:13px;font-weight:700;color:#1f2329;letter-spacing:0.12em;margin-bottom:12px">
+            3D GYM PLANNER
+          </div>
+
+          <!-- Progress bar — filled via transform:scaleX() from initialLoader.js.
+               The shimmer keeps it alive during long single-step waits. -->
+          <div id="gp-loader-track">
+            <div id="gp-loader-bar"></div>
+            <div id="gp-loader-shimmer"></div>
+          </div>
+
+          <div id="gp-loader-status">
+            <span id="gp-loader-label">Building your workspace</span>
+            <span id="gp-loader-pct">0%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+      // Progress engine for the splash. It lives here, inline, because the
+      // slowest part of a cold boot is downloading the app bundle — nothing in
+      // src/ is running yet, so a React-driven bar would sit at 0% through the
+      // entire wait and then snap to full. src/utils/initialLoader.js hands
+      // real milestones to window.__gpLoader once the app is alive.
+      (function () {
+        var root = document.getElementById("gp-loader");
+        if (!root) return;
+        var bar   = document.getElementById("gp-loader-bar");
+        var pct   = document.getElementById("gp-loader-pct");
+        var label = document.getElementById("gp-loader-label");
+        var target = 0, value = 0, ceil = 0, raf = null, sealed = false;
+
+        function paint() {
+          bar.style.transform = "scaleX(" + value + ")";
+          pct.textContent = Math.round(value * 100) + "%";
+        }
+        // Ease toward the milestone. Once parked there, the milestone itself
+        // drifts slowly toward its ceiling (~0.8%/s), so a stage that takes ten
+        // seconds still shows movement instead of looking like a frozen page —
+        // without ever running ahead into the next stage's range.
+        function tick() {
+          raf = null;
+          if (sealed) return;
+          if (value > target - 0.002 && target < ceil) target = Math.min(ceil, target + 0.00013);
+          var gap = target - value;
+          if (gap > 0.00005) {
+            value = Math.min(target, value + Math.max(gap * 0.045, 0.00013));
+            paint();
+          }
+          // Fully parked at the ceiling: idle until the next milestone arrives.
+          if (value < ceil - 0.0001) raf = requestAnimationFrame(tick);
+        }
+        function pump() { if (!sealed && raf === null) raf = requestAnimationFrame(tick); }
+
+        window.__gpLoader = {
+          // p: milestone (0..1, forward only). span: how far it may drift while
+          // waiting on this stage, kept short of the next milestone.
+          set: function (p, text, span) {
+            if (sealed) return;
+            if (typeof p === "number" && p > target) {
+              target = Math.min(0.97, p);
+              ceil = Math.min(0.97, target + (span == null ? 0.12 : span));
+              pump();
+            }
+            if (text && label && label.textContent !== text) label.textContent = text;
+          },
+          fill: function () {
+            // Never fade out mid-bar: a loader that vanishes at 71% reads as a
+            // failure even when everything loaded fine.
+            sealed = true;
+            if (raf !== null) { cancelAnimationFrame(raf); raf = null; }
+            target = 1; value = 1;
+            // Glide the last stretch instead of snapping — the fade-out starts
+            // ~400ms later, so the fill reads as the finish, not a cut.
+            bar.style.transition = "transform 0.32s cubic-bezier(0.4,0,0.2,1)";
+            paint();
+          },
+        };
+
+        paint();
+        // Bundle download — no reporter exists yet, so claim the first stretch.
+        window.__gpLoader.set(0.30, "Loading the planner", 0.09);
+        window.addEventListener("load", function () { window.__gpLoader.set(0.40, null, 0.06); });
+      })();
+    </script>
+    <style>
+      #gp-loader {
+        position:fixed; inset:0; z-index:9999;
+        background:#ffffff;
+        display:flex; align-items:center; justify-content:center;
+        font-family:monospace;
+        transition:opacity 0.45s ease;
+      }
+      #gp-loader.gp-loaded { opacity:0; pointer-events:none; }
+      #gp-loader-inner { display:flex; flex-direction:column; align-items:center; gap:24px; }
+
+      /* ── Edge draw animation ── */
+      @keyframes gpDraw   { from { stroke-dashoffset:55 } to { stroke-dashoffset:0 } }
+      @keyframes gpPop    { from { opacity:0; transform:scale(0) } to { opacity:1; transform:scale(1) } }
+      @keyframes gpDbIn   { from { opacity:0 } to { opacity:1 } }
+      @keyframes gpBreath { 0%,100%{opacity:1} 50%{opacity:0.55} }
+      @keyframes gpBlink  { 0%,100%{opacity:0} 50%{opacity:1} }
+
+      /* Cube edges: draw then breathe */
+      .gpe {
+        fill:none; stroke:#1f2329; stroke-width:2.2; stroke-linecap:round;
+        stroke-dasharray:55; stroke-dashoffset:55;
+        animation:
+          gpDraw   0.30s ease          forwards,
+          gpBreath 2.2s  ease-in-out   infinite;
+      }
+      /* Junction nodes: pop then breathe */
+      .gpn {
+        fill:#1f2329; opacity:0;
+        animation:
+          gpPop    0.18s cubic-bezier(0.34,1.56,0.64,1) forwards,
+          gpBreath 2.2s  ease-in-out                     infinite;
+      }
+      /* Dumbbell */
+      .gpdb { opacity:0; animation: gpDbIn 0.55s ease 2.2s forwards; }
+
+      /* ── Progress bar ── */
+      #gp-loader-track {
+        position:relative; width:196px; height:3px; margin:0 auto;
+        border-radius:2px; background:#e6e8ea; overflow:hidden;
+      }
+      #gp-loader-bar {
+        position:absolute; inset:0;
+        background:#1f2329; border-radius:2px;
+        transform:scaleX(0); transform-origin:left center;
+      }
+      /* A slow highlight sweep so the bar reads as "working" even while it
+         waits on one long step (GLB downloads, shader compile). */
+      #gp-loader-shimmer {
+        position:absolute; top:0; bottom:0; left:0; width:38%;
+        background:linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+        animation: gpSweep 1.6s ease-in-out infinite;
+      }
+      @keyframes gpSweep { from { transform:translateX(-110%) } to { transform:translateX(360%) } }
+
+      #gp-loader-status {
+        display:flex; align-items:center; justify-content:space-between;
+        width:196px; margin:9px auto 0;
+        font-size:11px; color:#5a6068; letter-spacing:0.04em;
+      }
+      #gp-loader-pct { font-variant-numeric:tabular-nums; color:#1f2329; }
+
+      /* Ellipsis dots — used by the in-app BrandedLoadingOverlay, which reuses
+         these classes for mid-session waits (the splash itself uses the bar). */
+      .gpell    { opacity:0; animation: gpBlink 1.5s ease-in-out infinite; }
+      .gpell.e1 { animation-delay:2.5s; }
+      .gpell.e2 { animation-delay:2.75s; }
+      .gpell.e3 { animation-delay:3.0s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .gpe, .gpn, .gpdb, #gp-loader-shimmer { animation:none; }
+        .gpe { stroke-dashoffset:0 }
+        .gpn, .gpdb { opacity:1 }
+      }
+    </style>
+
+    <!--
+      Pre-rendered content lives inside #root so Googlebot reads it on first crawl
+      (before JavaScript executes). React replaces this entirely on mount.
+      DO NOT add styles or ids that conflict with the React app.
+    -->
+    <div id="root"><div style="font-family:system-ui,sans-serif;max-width:900px;margin:0 auto;padding:48px 24px;color:#1f2329;line-height:1.6">
+      <h1 style="font-size:2rem;font-weight:800;margin-bottom:12px">Gym Layout Planner — Free 3D Home Gym Design Tool</h1>
+      <p style="font-size:1.1rem;color:#3a3f47;margin-bottom:32px">Plan your home gym, garage gym, or basement gym layout in 3D — true to scale, 100% free. Drag real equipment into your exact room dimensions, check every clearance, track your budget, then walk through it in first person before spending a dollar.</p>
+
+      <h2 style="font-size:1.3rem;font-weight:700;margin:28px 0 8px">Why Use a Gym Layout Planner?</h2>
+      <p>A gym layout planner lets you design your gym to scale before spending a dollar on equipment that might not fit. Instead of guessing whether a power rack clears your ceiling or leaves room to load plates, you place every piece inside a true-to-scale 3D model of your actual room. This free gym layout planner includes 134+ real equipment pieces with manufacturer dimensions, live collision detection, a budget tracker, and a first-person walkthrough — so the layout you design is the layout that actually works in your space.</p>
+
+      <h2 style="font-size:1.3rem;font-weight:700;margin:28px 0 8px">How It Works</h2>
+      <p>Enter your room dimensions (width, depth, ceiling height) for a garage, basement, spare room, or custom L/U/T shape. Then drag 134+ real gym equipment pieces — power racks, cable machines, barbells, benches, cardio machines, dumbbell racks, mirrors, and rubber flooring — into your space. The planner checks collisions, shows clearances, and tracks your total equipment cost in real time. When you're happy, export a 2D floor plan or share a link.</p>
+
+      <h2 style="font-size:1.3rem;font-weight:700;margin:28px 0 8px">What You Can Plan</h2>
+      <ul style="padding-left:20px;color:#3a3f47">
+        <li><strong>Power racks &amp; squat racks</strong> — REP, Rogue, Titan, and more, with real footprint dimensions</li>
+        <li><strong>Cable machines &amp; functional trainers</strong> — single stack, dual stack, half racks with cable</li>
+        <li><strong>Free weights</strong> — barbell sets, dumbbell racks, kettlebell storage, weight trees</li>
+        <li><strong>Benches</strong> — flat, adjustable, preacher curl, utility</li>
+        <li><strong>Cardio equipment</strong> — treadmills, rowing machines, assault bikes, ski ergs</li>
+        <li><strong>Strength machines</strong> — leg press, lat pulldown, chest press, Smith machine, and 50+ more</li>
+        <li><strong>Flooring &amp; walls</strong> — rubber mats, stall mats, mirrors, pegboards, windows, doors</li>
+        <li><strong>Zones</strong> — stretching areas, turf lanes, custom-colored floor markings</li>
+      </ul>
+
+      <h2 style="font-size:1.3rem;font-weight:700;margin:28px 0 8px">Popular Gym Layouts</h2>
+      <ul style="padding-left:20px;color:#3a3f47">
+        <li><strong>10×10 home gym</strong> (100 sq ft) — compact setup with a rack, bench, and dumbbells</li>
+        <li><strong>12×20 one-car garage gym</strong> (240 sq ft) — rack, cable machine, cardio, and storage</li>
+        <li><strong>14×22 two-car garage gym</strong> (308 sq ft) — full commercial-style home gym</li>
+        <li><strong>Basement gym floor plan</strong> — low ceiling layouts, column avoidance, stairwell clearance</li>
+        <li><strong>L-shaped and U-shaped rooms</strong> — custom polygon room builder for irregular spaces</li>
+      </ul>
+
+      <h2 style="font-size:1.3rem;font-weight:700;margin:28px 0 8px">Key Features</h2>
+      <ul style="padding-left:20px;color:#3a3f47">
+        <li>134+ equipment pieces with real manufacturer dimensions (not guesses)</li>
+        <li>Collision detection — pieces turn red when they overlap</li>
+        <li>First-person walkthrough — see how the gym feels to move through</li>
+        <li>Budget tracker with real MSRP prices per piece</li>
+        <li>2D floor plan view and PNG export</li>
+        <li>7 starter templates: powerlifting gym, CrossFit box, home gym, garage gym, and more</li>
+        <li>Share and publish layouts to the community gallery</li>
+        <li>Metric (metres) and imperial (feet) unit toggle</li>
+        <li>Works on desktop and tablet — no install, no account required, completely free</li>
+      </ul>
+
+      <h2 style="font-size:1.3rem;font-weight:700;margin:28px 0 8px">Home Gym Planning Tips</h2>
+      <p><strong>Start with your anchor piece.</strong> A power rack or functional trainer defines where everything else goes. Place it first, then build around it.</p>
+      <p><strong>Respect clearances.</strong> You need at least 3 ft (90 cm) in front of a power rack for barbell walkouts, and 3–4 ft on the sides of any machine for safe movement and loading. The planner shows collisions in real time so you catch problems before buying.</p>
+      <p><strong>Plan your flooring first.</strong> Rubber stall mats (3/4 in, 4×6 ft) are the standard for garage gyms. A 12×12 area needs about six mats (~$250–350). Map them in the Floors tab to estimate coverage.</p>
+      <p><strong>Check your ceiling height.</strong> Overhead pressing and rope pull-downs need at least 8 ft. Pull-up bars on a power rack need 9–10 ft for full ROM. Enter your actual ceiling height to flag conflicts early.</p>
+    </div></div>
+  </body>
+</html>

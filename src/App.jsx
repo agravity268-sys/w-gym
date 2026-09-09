@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Planner from './Planner';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -131,13 +132,8 @@ function App() {
             </p>
           </div>
           
-          <div className="w-full bg-black border-2 border-zinc-800 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(220,38,38,0.15)] relative" style={{ height: '75vh', minHeight: '600px' }}>
-            <iframe 
-              src="https://3dgymplanner.com/" 
-              className="w-full h-full border-none absolute inset-0"
-              title="3D Gym Planner"
-              allow="fullscreen"
-            ></iframe>
+          <div className="w-full h-[600px] md:h-[700px] shadow-[0_0_30px_rgba(220,38,38,0.15)] relative">
+            <Planner />
           </div>
         </div>
       </section>

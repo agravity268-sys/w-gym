@@ -132,8 +132,28 @@ function App() {
             </p>
           </div>
           
-          <div className="w-full h-[600px] md:h-[700px] shadow-[0_0_30px_rgba(220,38,38,0.15)] relative">
-            <Planner />
+          <div className="w-full max-w-4xl mx-auto bg-black border-2 border-zinc-800 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(220,38,38,0.15)] p-12 text-center flex flex-col items-center">
+            <div className="w-24 h-24 bg-zinc-900 rounded-full flex items-center justify-center mb-8 border border-zinc-800">
+              <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path>
+              </svg>
+            </div>
+            <h3 className="text-3xl font-black uppercase tracking-widest mb-4 text-white">Interactive 3D Floor Plan</h3>
+            <p className="text-zinc-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+              Drop real equipment into our exact dimensions, check clearances, and walk through our gym in first person before you even visit.
+            </p>
+            
+            <a 
+              href="https://3dgymplanner.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-red-600 text-white px-10 py-5 font-black text-lg tracking-widest uppercase hover:bg-red-700 transition-colors border-2 border-red-600 hover:border-red-700 shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center gap-3"
+            >
+              Launch 3D Tool
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
           </div>
         </div>
       </section>

@@ -58,15 +58,15 @@ function DesktopApp() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative w-full h-[90vh] bg-black overflow-hidden">
-        {/* Background Image */}
+      <section className="relative w-full h-[65vh] bg-[#0a0a0a] overflow-hidden">
+        {/* Background Image - scaled up to crop out any baked-in black letterboxing */}
         <div 
-          className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out opacity-80"
+          className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out opacity-80 scale-125"
           style={{ backgroundImage: `url(${images[3]})` }}
         ></div>
         
         {/* Gradient Overlay for navbar readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent h-48"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-transparent h-48"></div>
       </section>
 
       {/* 3D Model Viewer Section */}

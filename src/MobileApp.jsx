@@ -119,18 +119,7 @@ function MobileApp() {
           Every rack, bench, and machine is built from the manufacturer's real dimensions. Pick a category and spin the model — this is the same geometry that drops into your floor plan.
         </p>
 
-        {/* Mock Tabs */}
-        <div className="flex justify-center gap-3 mb-8">
-          <button className="px-6 py-2.5 rounded-full font-bold text-sm transition-colors bg-white text-gray-700 border border-gray-300 hover:border-gray-400">
-            Benches
-          </button>
-          <button className="px-6 py-2.5 rounded-full font-bold text-sm transition-colors bg-[#1f2329] text-white border border-[#1f2329]">
-            Machines
-          </button>
-          <button className="px-6 py-2.5 rounded-full font-bold text-sm transition-colors bg-white text-gray-700 border border-gray-300 hover:border-gray-400">
-            Racks
-          </button>
-        </div>
+
 
         {/* 3D Viewer Container */}
         <div className="bg-[#f8f9fa] rounded-2xl border border-gray-200 h-[500px] md:h-[600px] relative overflow-hidden shadow-inner flex flex-col items-center">

@@ -12,6 +12,15 @@ const googleMapsLink = "https://www.google.com/maps/place/THE+W+GYM/@30.3065838,
 
 function DesktopApp() {
   const [currentBgIndex, setCurrentBgIndex] = useState(4); // Start with Snapchat image
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const faqs = [
+    { q: "Where exactly are you located?", a: "We are located at Infinity Tower, GMS Rd, near Reliance Market, Niranjanpur, Dehradun." },
+    { q: "Do you have parking available?", a: "Yes, we offer dedicated basement parking for all our members, ensuring hassle-free visits." },
+    { q: "What are your membership fees?", a: "Our pricing is simple and transparent at just ₹2k per month with no hidden fees or complicated tiers." },
+    { q: "Do you provide personal training?", a: "Yes, we have genuine, professional trainers available on the floor to help guide your fitness journey." },
+    { q: "Is the gym usually crowded?", a: "We pride ourselves on having a spacious floor plan with ample room for everyone to lift, stretch, and move comfortably even during peak hours." }
+  ];
 
   return (
     <div className="min-h-screen bg-white text-[#1f2329] font-sans selection:bg-[#1f2329] selection:text-white pb-0">
@@ -301,6 +310,39 @@ function DesktopApp() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="bg-white py-32 border-b border-gray-200">
+        <div className="max-w-[800px] mx-auto px-8">
+          <div className="text-center md:text-left mb-16">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">FAQ</p>
+            <h2 className="text-4xl md:text-5xl font-black text-[#1f2329] tracking-tight">Quick answers.</h2>
+          </div>
+
+          <div className="flex flex-col">
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="border-t border-gray-100 last:border-b">
+                <button 
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full py-6 flex justify-between items-center text-left focus:outline-none group"
+                >
+                  <span className="font-bold text-[#1f2329] text-lg group-hover:text-black transition-colors">{faq.q}</span>
+                  <span className="text-gray-300 text-2xl font-light ml-4 transition-transform duration-300" style={{ transform: openFaq === idx ? 'rotate(45deg)' : 'none' }}>
+                    +
+                  </span>
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openFaq === idx ? 'max-h-40 pb-6 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <p className="text-gray-500 leading-relaxed">{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

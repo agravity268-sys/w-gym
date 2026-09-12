@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Planner from './Planner';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,273 +15,297 @@ function App() {
   const googleMapsLink = "https://www.google.com/maps/place/THE+W+GYM/@30.3065838,78.0074595,17z/data=!3m1!4b1!4m6!3m5!1s0x39092b1ab90ebfd3:0xab00e003cacdcef2!8m2!3d30.3065838!4d78.0100344!16s%2Fg%2F11tmn65lgn?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D";
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-red-600 selection:text-white">
+    <div className="min-h-screen bg-white text-[#1f2329] font-sans selection:bg-[#1f2329] selection:text-white pb-12">
       {/* Navigation */}
-      <nav className="border-b border-zinc-800 bg-black sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-6">
-          <div className="text-xl md:text-2xl font-black tracking-widest uppercase relative z-50">
+      <nav className="border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+          <div className="text-xl font-bold tracking-tight text-[#1f2329] relative z-50 flex items-center gap-2">
+            <div className="w-8 h-8 bg-[#1f2329] text-white flex items-center justify-center rounded uppercase font-black text-sm">W</div>
             THE W GYM
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8 text-sm font-bold tracking-wider">
-            <a href="#tour" className="hover:text-red-600 transition-colors">TOUR</a>
-            <a href="#planner" className="hover:text-red-600 transition-colors">3D PLANNER</a>
-            <a href="#reviews" className="hover:text-red-600 transition-colors">REVIEWS</a>
-            <a href="#membership" className="hover:text-red-600 transition-colors">FEES</a>
-            <a href="#contact" className="hover:text-red-600 transition-colors">LOCATION</a>
+          <div className="hidden md:flex space-x-8 text-sm font-semibold text-gray-600">
+            <a href="#tour" className="hover:text-black transition-colors">Tour</a>
+            <a href="#planner" className="hover:text-black transition-colors">3D Planner</a>
+            <a href="#reviews" className="hover:text-black transition-colors">Reviews</a>
+            <a href="#membership" className="hover:text-black transition-colors">Fees</a>
+            <a href="#contact" className="hover:text-black transition-colors">Location</a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center relative z-50">
             <button 
-              className="text-white focus:outline-none p-2 -mr-2"
+              className="text-[#1f2329] focus:outline-none p-2 -mr-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
               ) : (
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
               )}
             </button>
           </div>
         </div>
 
         {/* Mobile Dropdown Menu */}
-        <div className={`md:hidden absolute top-full left-0 w-full bg-zinc-950 border-b border-zinc-900 transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0 overflow-hidden py-0'}`}>
-          <div className="flex flex-col items-center space-y-6 text-lg font-bold tracking-wider">
-            <a href="#tour" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">TOUR</a>
-            <a href="#planner" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">3D PLANNER</a>
-            <a href="#reviews" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">REVIEWS</a>
-            <a href="#membership" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">FEES</a>
-            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">LOCATION</a>
+        <div className={`md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 transition-all duration-300 ease-in-out shadow-lg ${isMenuOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0 overflow-hidden py-0'}`}>
+          <div className="flex flex-col items-center space-y-6 text-base font-semibold text-gray-700">
+            <a href="#tour" onClick={() => setIsMenuOpen(false)} className="hover:text-black transition-colors">Tour</a>
+            <a href="#planner" onClick={() => setIsMenuOpen(false)} className="hover:text-black transition-colors">3D Planner</a>
+            <a href="#reviews" onClick={() => setIsMenuOpen(false)} className="hover:text-black transition-colors">Reviews</a>
+            <a href="#membership" onClick={() => setIsMenuOpen(false)} className="hover:text-black transition-colors">Fees</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-black transition-colors">Location</a>
             
-            <div className="mt-4 pt-6 border-t border-zinc-800 w-3/4 text-center">
-              <p className="text-xs text-zinc-500 uppercase tracking-widest">Website made by Shadan and Dev</p>
+            <div className="mt-4 pt-6 border-t border-gray-100 w-3/4 text-center">
+              <p className="text-xs text-gray-400">Website made by Shadan and Dev</p>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <header className="relative min-h-[85vh] flex items-center justify-center bg-zinc-900 border-b border-zinc-800">
-        <div className="absolute inset-0 bg-black/70 z-10"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('${images[4]}')`, filter: 'grayscale(50%)' }}
-        ></div>
-        
-        <div className="relative z-20 text-center px-4 flex flex-col items-center w-full max-w-full overflow-hidden">
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-black uppercase leading-none tracking-tighter mb-4 sm:mb-6 text-white drop-shadow-2xl">
-            THE <span className="text-red-600">W</span> GYM
+      {/* Hero Section (3dgymplanner.com style) */}
+      <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex-1 text-center lg:text-left">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1f2329] leading-tight mb-6 tracking-tight">
+            Premium Fitness & <br className="hidden lg:block" />
+            Top-Tier Equipment in Dehradun
           </h1>
-          
-          <a href="#membership" className="mt-6 sm:mt-8 bg-red-600 text-white px-8 sm:px-12 py-4 sm:py-5 font-black text-lg sm:text-xl tracking-widest uppercase hover:bg-red-700 transition-colors border-2 border-red-600 hover:border-red-700 shadow-[0_0_20px_rgba(220,38,38,0.4)]">
-            JOIN TODAY
-          </a>
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Experience the best gym facility in the city. Located at Infinity Tower, GMS Rd, we provide genuine trainers, ample space, and the best environment for your fitness journey.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+            <a 
+              href="tel:+918937017434" 
+              className="w-full sm:w-auto bg-[#1f2329] text-white px-8 py-4 rounded-lg font-bold hover:bg-black transition-colors shadow-lg shadow-black/10 flex items-center justify-center gap-2"
+            >
+              Contact Us
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <a 
+              href="#tour" 
+              className="w-full sm:w-auto bg-white text-[#1f2329] border border-gray-300 px-8 py-4 rounded-lg font-bold hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+            >
+              View Tour
+            </a>
+          </div>
+        </div>
+        <div className="flex-1 w-full relative">
+          <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative bg-gray-100">
+            <img src={images[4]} alt="The W Gym Hero" className="w-full h-full object-cover" />
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent"></div>
+          </div>
+          {/* Decorative elements similar to modern SaaS sites */}
+          <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-4">
+            <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+            </div>
+            <div>
+              <p className="text-sm font-bold text-[#1f2329]">Rated 4.7/5</p>
+              <p className="text-xs text-gray-500">Google Reviews</p>
+            </div>
+          </div>
         </div>
       </header>
 
-      {/* Info Bar */}
-      <div className="bg-zinc-900 border-b border-zinc-800 py-10 sm:py-12">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <p className="text-xl sm:text-2xl font-bold tracking-widest uppercase mb-4">Located in Dehradun</p>
-          <p className="text-zinc-400 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto px-2">
-            Infinity tower, GMS Rd, near reliance Market, Mahadev Vihar,<br className="hidden sm:block" />
-            Shakti Enclave, Niranjanpur, Dehradun, Uttarakhand 248171
-          </p>
-          
-          <a 
-            href={googleMapsLink}
-            target="_blank" rel="noopener noreferrer"
-            className="inline-block bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 text-sm sm:text-base font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-colors"
-          >
-            View on Google Maps
-          </a>
-        </div>
-      </div>
+      <div className="border-t border-gray-200 my-8"></div>
 
-      {/* Tour / Images Section */}
-      <section id="tour" className="py-24 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest mb-16 text-center">
-            GYM <span className="text-red-600">TOUR</span>
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {images.map((src, idx) => (
-              <div 
-                key={idx} 
-                className="aspect-square relative overflow-hidden group border border-zinc-800 cursor-pointer"
-                onClick={() => setSelectedImage(src)}
-              >
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
-                <img 
-                  src={src} 
-                  alt={`Gym Facility ${idx + 1}`} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3D Gym Planner Section */}
-      <section id="planner" className="py-24 bg-zinc-950 border-t border-zinc-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest mb-4">
-              VIRTUAL <span className="text-red-600">3D PLANNER</span>
-            </h2>
-            <p className="text-zinc-400 text-lg uppercase tracking-widest font-bold">
-              Design your workout & explore the floor plan
+      {/* 3D Planner CTA (SaaS Integration Style) */}
+      <section id="planner" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="bg-[#f8f9fa] border border-gray-200 rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1">
+            <h2 className="text-3xl font-bold text-[#1f2329] mb-4">Plan your home gym or explore our layout in 3D</h2>
+            <p className="text-gray-600 mb-8 leading-relaxed text-lg">
+              Want to see what fits or plan your own space? We've integrated with 3D Gym Planner. Drag real equipment into exact dimensions, check clearances, and walk through in first person.
             </p>
-          </div>
-          
-          <div className="w-full max-w-4xl mx-auto bg-black border-2 border-zinc-800 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(220,38,38,0.15)] p-12 text-center flex flex-col items-center">
-            <div className="w-24 h-24 bg-zinc-900 rounded-full flex items-center justify-center mb-8 border border-zinc-800">
-              <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path>
-              </svg>
-            </div>
-            <h3 className="text-3xl font-black uppercase tracking-widest mb-4 text-white">Interactive 3D Floor Plan</h3>
-            <p className="text-zinc-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-              Drop real equipment into our exact dimensions, check clearances, and walk through our gym in first person before you even visit.
-            </p>
-            
             <a 
               href="https://3dgymplanner.com/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-red-600 text-white px-10 py-5 font-black text-lg tracking-widest uppercase hover:bg-red-700 transition-colors border-2 border-red-600 hover:border-red-700 shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center gap-3"
+              className="inline-flex bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors items-center gap-2 shadow-lg shadow-blue-600/20"
             >
-              Launch 3D Tool
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-              </svg>
+              Launch 3D Planner
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+          <div className="flex-1 w-full">
+            <div className="aspect-video bg-gray-200 rounded-xl overflow-hidden border border-gray-300 shadow-inner flex items-center justify-center relative">
+               <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
+               <div className="absolute inset-0 flex items-center justify-center">
+                 <p className="text-gray-500 font-medium mt-24">Interactive Layout Viewer</p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Info Section / About */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+        <h2 className="text-3xl font-bold text-[#1f2329] mb-12">Why Choose THE W GYM?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mx-auto mb-6">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            </div>
+            <h3 className="font-bold text-[#1f2329] text-xl mb-3">Prime Location</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Centrally located at Infinity Tower, GMS Rd, Niranjanpur with easily accessible basement parking available.
+            </p>
+          </div>
+          <div className="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 bg-green-50 text-green-600 rounded-lg flex items-center justify-center mx-auto mb-6">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h3 className="font-bold text-[#1f2329] text-xl mb-3">Quality Equipment</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              We stock the best in class machines, free weights, and functional training gear ensuring you get a complete workout.
+            </p>
+          </div>
+          <div className="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center mx-auto mb-6">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </div>
+            <h3 className="font-bold text-[#1f2329] text-xl mb-3">Professional Trainers</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Work with our experienced and polite training staff who maintain a healthy, welcoming environment for everyone.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Tour / Images Section */}
+      <section id="tour" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-3xl font-bold text-[#1f2329] mb-10 text-center">Take a Look Inside</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {images.slice(0, 4).map((src, idx) => (
+            <div 
+              key={idx} 
+              className="aspect-square relative overflow-hidden rounded-xl border border-gray-200 cursor-pointer hover:shadow-lg transition-all"
+              onClick={() => setSelectedImage(src)}
+            >
+              <img 
+                src={src} 
+                alt={`Gym Facility ${idx + 1}`} 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Membership Fees Section */}
+      <section id="membership" className="bg-[#f8f9fa] py-20 border-y border-gray-200">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-[#1f2329] mb-4">Simple, Transparent Pricing</h2>
+          <p className="text-gray-600 mb-12">No hidden fees or complicated tiers. Just complete access.</p>
+          
+          <div className="bg-white border border-gray-200 rounded-3xl p-10 max-w-sm mx-auto shadow-xl flex flex-col items-center">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">Monthly Pass</h3>
+            <div className="flex items-baseline gap-1 mb-6">
+              <span className="text-5xl font-extrabold text-[#1f2329]">₹2k</span>
+              <span className="text-gray-500">/mo</span>
+            </div>
+            <ul className="text-left space-y-4 mb-8 w-full text-gray-600 text-sm">
+              <li className="flex items-center gap-3">
+                <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                Full gym access
+              </li>
+              <li className="flex items-center gap-3">
+                <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                Professional trainers
+              </li>
+              <li className="flex items-center gap-3">
+                <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                Basement parking
+              </li>
+            </ul>
+            <a href="tel:+918937017434" className="w-full bg-[#1f2329] text-white font-bold py-4 rounded-xl hover:bg-black transition-colors shadow-lg shadow-black/10">
+              Contact to Join
             </a>
           </div>
         </div>
       </section>
 
       {/* Reviews Section */}
-      <section id="reviews" className="py-24 bg-zinc-950 border-t border-zinc-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest mb-4">
-              MEMBER <span className="text-red-600">REVIEWS</span>
-            </h2>
-            <p className="text-zinc-400 text-lg uppercase tracking-widest font-bold">Rated 4.7/5 Stars on Google</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Review 1 */}
-            <div className="bg-black border border-zinc-800 p-8 hover:border-red-600 transition-colors shadow-lg">
-              <div className="text-red-600 mb-4 text-2xl tracking-widest">★★★★★</div>
-              <p className="text-zinc-300 italic mb-6 leading-relaxed">
-                "Ample space, fine equipment and genuine trainers is all I can tell about the W gym. (Ps basement parking available)"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">AK</div>
-                <p className="text-white font-bold tracking-wider uppercase text-sm">Akshat Kapruwan</p>
-              </div>
-            </div>
-            
-            {/* Review 2 */}
-            <div className="bg-black border border-zinc-800 p-8 hover:border-red-600 transition-colors shadow-lg">
-              <div className="text-red-600 mb-4 text-2xl tracking-widest">★★★★★</div>
-              <p className="text-zinc-300 italic mb-6 leading-relaxed">
-                "Best gym with the quality equipments and professional trainers healthy environment with a neat and clean cafeteria too."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">MC</div>
-                <p className="text-white font-bold tracking-wider uppercase text-sm">Mayank Chawla</p>
-              </div>
-            </div>
-            
-            {/* Review 3 */}
-            <div className="bg-black border border-zinc-800 p-8 hover:border-red-600 transition-colors shadow-lg">
-              <div className="text-red-600 mb-4 text-2xl tracking-widest">★★★★★</div>
-              <p className="text-zinc-300 italic mb-6 leading-relaxed">
-                "Incredible facility with top-tier equipment. Easily the best gym experience I've had in Dehradun."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">SK</div>
-                <p className="text-white font-bold tracking-wider uppercase text-sm">Md. Shadan Khan</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="text-center mt-12">
-            <a 
-              href={googleMapsLink}
-              target="_blank" rel="noopener noreferrer"
-              className="inline-block text-zinc-400 border-b border-zinc-600 hover:text-white hover:border-white transition-colors pb-1 uppercase tracking-widest text-sm font-bold"
-            >
-              Read more reviews on Google
-            </a>
+      <section id="reviews" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-[#1f2329] mb-4">What Our Members Say</h2>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-yellow-400 text-xl">★★★★★</span>
+            <span className="font-semibold text-gray-700">4.7/5 on Google Maps</span>
           </div>
         </div>
-      </section>
-
-      {/* Membership Fees Section */}
-      <section id="membership" className="py-24 bg-zinc-900 border-t border-zinc-800 border-b">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest mb-6">
-            MEMBERSHIP <span className="text-red-600">FEES</span>
-          </h2>
-          
-          <div className="mt-16 bg-black border border-zinc-800 p-12 max-w-md mx-auto relative group overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-red-600/5 group-hover:bg-red-600/10 transition-colors"></div>
-            <h3 className="text-2xl font-bold tracking-widest text-zinc-400 uppercase mb-4 relative z-10">Monthly Pass</h3>
-            <div className="text-7xl font-black text-white relative z-10 mb-6 tracking-tighter">
-              ₹2k
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+            <div className="text-yellow-400 mb-4 text-xl">★★★★★</div>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              "Ample space, fine equipment and genuine trainers is all I can tell about the W gym. (Ps basement parking available)"
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-500">AK</div>
+              <p className="text-[#1f2329] font-bold text-sm">Akshat Kapruwan</p>
             </div>
-            <p className="text-zinc-500 relative z-10 mb-10 font-medium">Full access to THE W GYM facilities and equipment.</p>
-            <a href="tel:+918937017434" className="inline-block w-full bg-red-600 text-white font-bold uppercase tracking-widest py-4 hover:bg-red-700 transition-colors relative z-10">
-              Contact
-            </a>
+          </div>
+          
+          <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+            <div className="text-yellow-400 mb-4 text-xl">★★★★★</div>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              "Best gym with the quality equipments and professional trainers healthy environment with a neat and clean cafeteria too."
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-500">MC</div>
+              <p className="text-[#1f2329] font-bold text-sm">Mayank Chawla</p>
+            </div>
+          </div>
+          
+          <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+            <div className="text-yellow-400 mb-4 text-xl">★★★★★</div>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              "Incredible facility with top-tier equipment. Easily the best gym experience I've had in Dehradun."
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-500">SK</div>
+              <p className="text-[#1f2329] font-bold text-sm">Md. Shadan Khan</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-zinc-950 border-t border-zinc-900 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 text-center md:text-left">
-          
+      <footer id="contact" className="bg-[#1f2329] text-white pt-16 pb-8 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 text-center md:text-left mb-16">
           <div>
-            <h4 className="text-2xl font-black mb-6 uppercase tracking-widest text-red-600">Location</h4>
-            <div className="space-y-4 text-zinc-400 text-lg">
-              <p>
-                Infinity tower, GMS Rd,<br />
-                near reliance Market, Mahadev Vihar,<br />
-                Shakti Enclave, Niranjanpur,<br />
-                Dehradun, Uttarakhand 248171
-              </p>
-              <p className="mt-6">
-                <a href={googleMapsLink} target="_blank" rel="noopener noreferrer" className="text-white border-b-2 border-red-600 hover:text-red-500 hover:border-red-500 transition-colors pb-1 font-bold tracking-wider uppercase text-sm">
+            <h4 className="text-xl font-bold mb-6">Location</h4>
+            <div className="space-y-2 text-gray-400">
+              <p>Infinity tower, GMS Rd,</p>
+              <p>near reliance Market, Mahadev Vihar,</p>
+              <p>Shakti Enclave, Niranjanpur,</p>
+              <p>Dehradun, Uttarakhand 248171</p>
+              <div className="mt-6">
+                <a href={googleMapsLink} target="_blank" rel="noopener noreferrer" className="text-white border-b border-white hover:text-gray-300 transition-colors pb-1 font-semibold text-sm">
                   Open in Google Maps
                 </a>
-              </p>
+              </div>
             </div>
           </div>
           
           <div>
-            <h4 className="text-2xl font-black mb-6 uppercase tracking-widest text-red-600">Contact</h4>
-            <div className="space-y-4 text-zinc-400 text-lg">
+            <h4 className="text-xl font-bold mb-6">Contact</h4>
+            <div className="space-y-4 text-gray-400">
               <p>Visit us during opening hours or connect on-site to enroll.</p>
-              <p className="text-sm mt-8 uppercase tracking-widest">W GYM, Dehradun</p>
+              <p className="font-semibold text-white">Call: +91 8937017434</p>
             </div>
           </div>
-          
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center text-zinc-600 font-bold uppercase tracking-widest text-sm space-y-4 md:space-y-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm space-y-4 md:space-y-0">
           <div>&copy; {new Date().getFullYear()} THE W GYM.</div>
-          <div className="text-zinc-500">
-            Website made by <span className="text-zinc-400">Shadan</span> & <span className="text-zinc-400">Dev</span>
+          <div>
+            Website made by <span className="text-white">Shadan</span> & <span className="text-white">Dev</span>
           </div>
         </div>
       </footer>
@@ -294,7 +317,7 @@ function App() {
           onClick={() => setSelectedImage(null)}
         >
           <button 
-            className="absolute top-6 right-6 text-white hover:text-red-500 z-[101] transition-colors"
+            className="absolute top-6 right-6 text-white hover:text-gray-300 z-[101] transition-colors"
             onClick={() => setSelectedImage(null)}
           >
             <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -302,7 +325,7 @@ function App() {
           <img 
             src={selectedImage} 
             alt="Full size view" 
-            className="max-w-full max-h-[90vh] object-contain shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-zinc-800"
+            className="max-w-full max-h-[90vh] object-contain rounded shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />
         </div>

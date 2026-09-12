@@ -11,6 +11,7 @@ const images = [
 const googleMapsLink = "https://www.google.com/maps/place/THE+W+GYM/@30.3065838,78.0074595,17z/data=!3m1!4b1!4m6!3m5!1s0x39092b1ab90ebfd3:0xab00e003cacdcef2!8m2!3d30.3065838!4d78.0100344!16s%2Fg%2F11tmn65lgn?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D";
 
 function DesktopApp() {
+  const [currentBgIndex, setCurrentBgIndex] = useState(3); // Start with 4th image
   const [openFaq, setOpenFaq] = useState(null);
   const [isDark, setIsDark] = useState(true); // Dark mode default
 
@@ -58,15 +59,49 @@ function DesktopApp() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative w-full h-[65vh] bg-[#0a0a0a] overflow-hidden">
-        {/* Background Image - scaled up to crop out any baked-in black letterboxing */}
+      <section className="relative w-full h-[90vh] bg-black overflow-hidden">
+        {/* Background Image that changes */}
         <div 
-          className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out opacity-80 scale-125"
-          style={{ backgroundImage: `url(${images[3]})` }}
+          className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out opacity-60"
+          style={{ backgroundImage: `url(${images[currentBgIndex]})` }}
         ></div>
         
-        {/* Gradient Overlay for navbar readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-transparent h-48"></div>
+        {/* Gradient Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-[1400px] mx-auto px-8 h-full flex flex-col justify-center">
+          <p className="text-gray-300 font-bold tracking-widest text-xs mb-4 uppercase">Premium Fitness — No Compromises</p>
+          <h1 className="text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6 max-w-3xl tracking-tight">
+            Elevate your training at THE W GYM.
+          </h1>
+          <p className="text-lg text-gray-300 mb-10 max-w-xl leading-relaxed">
+            Experience the best gym facility in Dehradun. Located at Infinity Tower, we provide genuine trainers, ample space, and the finest environment for your fitness journey.
+          </p>
+          <div className="flex items-center gap-4">
+            <a href="tel:+918937017434" className="bg-white text-[#1f2329] px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors flex items-center gap-2">
+              Contact Us &rarr;
+            </a>
+            <a href="#tour" className="bg-transparent border border-gray-400 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition-colors">
+              View Tour
+            </a>
+          </div>
+        </div>
+
+        {/* Slider Thumbnails (Bottom Right) */}
+        <div className="absolute bottom-8 right-8 z-20 flex gap-3">
+          {images.map((src, idx) => (
+            <button 
+              key={idx}
+              onClick={() => setCurrentBgIndex(idx)}
+              className={`w-24 h-16 rounded-md overflow-hidden border-2 transition-all duration-300 ${
+                currentBgIndex === idx ? 'border-white scale-110 shadow-[0_0_20px_rgba(255,255,255,0.4)]' : 'border-transparent opacity-50 hover:opacity-100'
+              }`}
+            >
+              <img src={src} className="w-full h-full object-cover" alt={`Preview ${idx + 1}`} />
+            </button>
+          ))}
+        </div>
       </section>
 
       {/* 3D Model Viewer Section */}

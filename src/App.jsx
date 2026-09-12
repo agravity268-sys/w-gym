@@ -236,8 +236,8 @@ function App() {
               ₹2k
             </div>
             <p className="text-zinc-500 relative z-10 mb-10 font-medium">Full access to THE W GYM facilities and equipment.</p>
-            <a href="#contact" className="inline-block w-full bg-red-600 text-white font-bold uppercase tracking-widest py-4 hover:bg-red-700 transition-colors relative z-10">
-              Enquire Now
+            <a href="tel:+918937017434" className="inline-block w-full bg-red-600 text-white font-bold uppercase tracking-widest py-4 hover:bg-red-700 transition-colors relative z-10">
+              Contact
             </a>
           </div>
         </div>

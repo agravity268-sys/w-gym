@@ -98,7 +98,7 @@ function App() {
             <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent"></div>
           </div>
           {/* Decorative elements similar to modern SaaS sites */}
-          <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-4">
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:-left-6 lg:translate-x-0 w-max bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-4">
             <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
             </div>

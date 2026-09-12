@@ -136,32 +136,21 @@ function App() {
         <div className="bg-[#f8f9fa] rounded-2xl border border-gray-200 h-[500px] md:h-[600px] relative overflow-hidden shadow-inner flex flex-col items-center">
           
           {/* Top Left Text Layer */}
-          <div className="absolute top-6 left-6 text-left z-10 pointer-events-none">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Elvair Lima</p>
-            <h3 className="text-xl font-black text-[#1f2329]">Rigged Gym Equipment</h3>
-            <p className="text-xs text-gray-400 mt-1">Interactive 3D Model</p>
+          <div className="absolute top-6 left-6 text-left z-10 pointer-events-none bg-white/50 backdrop-blur-[2px] px-4 py-2 rounded-xl">
+            <h3 className="text-xl font-black text-[#1f2329]">Equipments we have</h3>
+            <p className="text-xs text-gray-500 mt-1">Interactive 3D Model</p>
           </div>
 
-          {/* Sketchfab Iframe */}
-          <div className="w-full h-full absolute inset-0">
+          {/* Sketchfab Iframe - Positioned to crop out top and bottom native UI */}
+          <div className="absolute top-[-70px] left-0 w-full h-[calc(100%+140px)]">
             <iframe 
-              title="Rigged Gym Equipment" 
+              title="Equipments we have" 
               frameBorder="0" 
               allowFullScreen 
               allow="autoplay; fullscreen; xr-spatial-tracking" 
               src="https://sketchfab.com/models/c6ec59a679fc45649575e8c91ec53215/embed?ui_theme=dark&ui_infos=0&ui_watermark=0&ui_stop=0&transparent=1" 
               className="w-full h-full object-cover"
             ></iframe>
-          </div>
-
-          {/* Bottom Callout */}
-          <div className="absolute bottom-6 w-full flex justify-between items-center px-6 pointer-events-none z-10">
-            <p className="text-sm font-medium text-gray-500 hidden md:block">
-              Fully rigged and interactable — see how it fits in your routine.
-            </p>
-            <div className="bg-[#1f2329] text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-lg ml-auto pointer-events-auto cursor-pointer hover:bg-black transition-colors">
-              Place it in your gym &rarr;
-            </div>
           </div>
         </div>
       </section>

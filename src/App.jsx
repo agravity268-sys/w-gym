@@ -3,6 +3,7 @@ import Planner from './Planner';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const images = [
     '/images/20260710_220225.jpg',
@@ -111,7 +112,11 @@ function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {images.map((src, idx) => (
-              <div key={idx} className="aspect-square relative overflow-hidden group border border-zinc-800">
+              <div 
+                key={idx} 
+                className="aspect-square relative overflow-hidden group border border-zinc-800 cursor-pointer"
+                onClick={() => setSelectedImage(src)}
+              >
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
                 <img 
                   src={src} 
@@ -281,6 +286,27 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Fullscreen Image Lightbox */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 cursor-zoom-out"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-white hover:text-red-500 z-[101] transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+          <img 
+            src={selectedImage} 
+            alt="Full size view" 
+            className="max-w-full max-h-[90vh] object-contain shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-zinc-800"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }

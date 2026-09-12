@@ -112,30 +112,55 @@ function App() {
 
       <div className="border-t border-gray-200 my-8"></div>
 
-      {/* 3D Planner CTA (SaaS Integration Style) */}
-      <section id="planner" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-[#f8f9fa] border border-gray-200 rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1">
-            <h2 className="text-3xl font-bold text-[#1f2329] mb-4">Plan your home gym or explore our layout in 3D</h2>
-            <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-              Want to see what fits or plan your own space? We've integrated with 3D Gym Planner. Drag real equipment into exact dimensions, check clearances, and walk through in first person.
-            </p>
-            <a 
-              href="https://3dgymplanner.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors items-center gap-2 shadow-lg shadow-blue-600/20"
-            >
-              Launch 3D Planner
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
+      {/* Interactive 3D Model Section */}
+      <section id="planner" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-[#1f2329] mb-4">Real gear, modeled in 3D.</h2>
+        <p className="text-gray-500 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
+          Every rack, bench, and machine is built from the manufacturer's real dimensions. Pick a category and spin the model — this is the same geometry that drops into your floor plan.
+        </p>
+
+        {/* Mock Tabs */}
+        <div className="flex justify-center gap-3 mb-8">
+          <button className="px-6 py-2.5 rounded-full font-bold text-sm transition-colors bg-white text-gray-700 border border-gray-300 hover:border-gray-400">
+            Benches
+          </button>
+          <button className="px-6 py-2.5 rounded-full font-bold text-sm transition-colors bg-[#1f2329] text-white border border-[#1f2329]">
+            Machines
+          </button>
+          <button className="px-6 py-2.5 rounded-full font-bold text-sm transition-colors bg-white text-gray-700 border border-gray-300 hover:border-gray-400">
+            Racks
+          </button>
+        </div>
+
+        {/* 3D Viewer Container */}
+        <div className="bg-[#f8f9fa] rounded-2xl border border-gray-200 h-[500px] md:h-[600px] relative overflow-hidden shadow-inner flex flex-col items-center">
+          
+          {/* Top Left Text Layer */}
+          <div className="absolute top-6 left-6 text-left z-10 pointer-events-none">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Elvair Lima</p>
+            <h3 className="text-xl font-black text-[#1f2329]">Rigged Gym Equipment</h3>
+            <p className="text-xs text-gray-400 mt-1">Interactive 3D Model</p>
           </div>
-          <div className="flex-1 w-full">
-            <div className="aspect-video bg-gray-200 rounded-xl overflow-hidden border border-gray-300 shadow-inner flex items-center justify-center relative">
-               <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
-               <div className="absolute inset-0 flex items-center justify-center">
-                 <p className="text-gray-500 font-medium mt-24">Interactive Layout Viewer</p>
-               </div>
+
+          {/* Sketchfab Iframe */}
+          <div className="w-full h-full absolute inset-0">
+            <iframe 
+              title="Rigged Gym Equipment" 
+              frameBorder="0" 
+              allowFullScreen 
+              allow="autoplay; fullscreen; xr-spatial-tracking" 
+              src="https://sketchfab.com/models/c6ec59a679fc45649575e8c91ec53215/embed?ui_theme=dark&ui_infos=0&ui_watermark=0&ui_stop=0&transparent=1" 
+              className="w-full h-full object-cover"
+            ></iframe>
+          </div>
+
+          {/* Bottom Callout */}
+          <div className="absolute bottom-6 w-full flex justify-between items-center px-6 pointer-events-none z-10">
+            <p className="text-sm font-medium text-gray-500 hidden md:block">
+              Fully rigged and interactable — see how it fits in your routine.
+            </p>
+            <div className="bg-[#1f2329] text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-lg ml-auto pointer-events-auto cursor-pointer hover:bg-black transition-colors">
+              Place it in your gym &rarr;
             </div>
           </div>
         </div>

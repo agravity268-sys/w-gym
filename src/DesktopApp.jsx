@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const images = [
   '/images/20260710_220225.jpg',
@@ -11,9 +11,16 @@ const images = [
 const googleMapsLink = "https://www.google.com/maps/place/THE+W+GYM/@30.3065838,78.0074595,17z/data=!3m1!4b1!4m6!3m5!1s0x39092b1ab90ebfd3:0xab00e003cacdcef2!8m2!3d30.3065838!4d78.0100344!16s%2Fg%2F11tmn65lgn?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D";
 
 function DesktopApp() {
-  const [currentBgIndex, setCurrentBgIndex] = useState(4); // Start with Snapchat image
+  const [currentBgIndex, setCurrentBgIndex] = useState(1); // Start with second image
   const [openFaq, setOpenFaq] = useState(null);
   const [isDark, setIsDark] = useState(true); // Dark mode default
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBgIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(timer);
+  }, []);
 
   const faqs = [
     { q: "Where exactly are you located?", a: "We are located at Infinity Tower, GMS Rd, near Reliance Market, Niranjanpur, Dehradun." },

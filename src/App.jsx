@@ -56,6 +56,10 @@ function App() {
             <a href="#reviews" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">REVIEWS</a>
             <a href="#membership" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">FEES</a>
             <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-red-600 transition-colors">LOCATION</a>
+            
+            <div className="mt-4 pt-6 border-t border-zinc-800 w-3/4 text-center">
+              <p className="text-xs text-zinc-500 uppercase tracking-widest">Website made by Shadan and Dev</p>
+            </div>
           </div>
         </div>
       </nav>
@@ -197,11 +201,11 @@ function App() {
             <div className="bg-black border border-zinc-800 p-8 hover:border-red-600 transition-colors shadow-lg">
               <div className="text-red-600 mb-4 text-2xl tracking-widest">★★★★★</div>
               <p className="text-zinc-300 italic mb-6 leading-relaxed">
-                "Spacious place. Good quality equipment. The owner is a very polite and professional person."
+                "Incredible facility with top-tier equipment. Easily the best gym experience I've had in Dehradun."
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">CG</div>
-                <p className="text-white font-bold tracking-wider uppercase text-sm">chitra guha</p>
+                <div className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">SK</div>
+                <p className="text-white font-bold tracking-wider uppercase text-sm">Md. Shadan Khan</p>
               </div>
             </div>
           </div>
@@ -270,8 +274,11 @@ function App() {
           
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-zinc-900 text-center text-zinc-600 font-bold uppercase tracking-widest text-sm">
-          &copy; {new Date().getFullYear()} THE W GYM.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center text-zinc-600 font-bold uppercase tracking-widest text-sm space-y-4 md:space-y-0">
+          <div>&copy; {new Date().getFullYear()} THE W GYM.</div>
+          <div className="text-zinc-500">
+            Website made by <span className="text-zinc-400">Shadan</span> & <span className="text-zinc-400">Dev</span>
+          </div>
         </div>
       </footer>
     </div>
